@@ -1,60 +1,74 @@
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Briefcase } from "lucide-react";
 
 export function Education() {
-  const educationData = [
+  const timeline = [
     {
-      degree: "Licence en Systèmes Informatiques et Logiciels",
-      school: "Université XYZ",
-      year: "2023 - 2026",
-      description: "Formation axée sur le développement web, les bases de données et la programmation."
+      title: "Baccalauréat Scientifique (Série D)",
+      date: "2024",
+      description:
+        "Obtention du Baccalauréat scientifique, marquant le début de mon orientation vers les technologies et l'informatique.",
+      icon: <GraduationCap size={20} />,
     },
     {
-      degree: "Baccalauréat Scientifique",
-      school: "Lycée ABC",
-      year: "2020 - 2023",
-      description: "Spécialisation en mathématiques et sciences."
-    }
+      title: "Licence 1 - Informatique | HECM",
+      date: "2024 - 2025",
+      description:
+        "Acquisition des bases solides en programmation, développement web et réseaux informatiques.",
+      icon: <GraduationCap size={20} />,
+    },
+    {
+      title: "Stage - BETA2-AFRIQUE TECHNOLOGIES",
+      date: "2025",
+      description:
+        "Stage professionnel de 2 mois en développement web et mobile. Participation à des projets concrets et découverte du travail en environnement professionnel.",
+      icon: <Briefcase size={20} />,
+    },
+    {
+      title: "Licence 2 - Informatique | HECM",
+      date: "2025 - Présent",
+      description:
+        "Approfondissement des compétences en développement logiciel et réalisation de projets académiques et personnels.",
+      icon: <GraduationCap size={20} />,
+    },
   ];
 
   return (
-    <section id="education" className="py-20 px-4 bg-gray-50">
+    <section id="education" className="py-20 bg-gray-50 px-4">
       <div className="max-w-5xl mx-auto">
-        <motion.div
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-4xl font-bold text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Parcours académique
-          </h2>
-          <p className="text-gray-600">
-            Mon cheminement académique et les compétences acquises.
-          </p>
-        </motion.div>
+          Parcours Académique
+        </motion.h2>
 
         <div className="relative border-l-4 border-blue-600">
-          {educationData.map((item, index) => (
+          {timeline.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="mb-10 ml-6"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="mb-12 ml-6"
             >
-              <span className="absolute -left-4 flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white">
-                <GraduationCap size={16} />
+              <span className="absolute -left-4 flex items-center justify-center w-8 h-8 bg-linear-to-r from-blue-600 to-purple-600 rounded-full text-white shadow-md">
+                {item.icon}
               </span>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                {item.degree}
-              </h3>
-              <p className="text-blue-600 font-medium">{item.school}</p>
-              <span className="text-sm text-gray-500">{item.year}</span>
-              <p className="mt-2 text-gray-600">{item.description}</p>
+              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <span className="text-sm text-blue-600 font-medium">
+                  {item.date}
+                </span>
+                <p className="mt-3 text-gray-600">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
