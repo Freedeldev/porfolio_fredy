@@ -16,7 +16,7 @@ export function Contact() {
   emailjs
     .send(
       'service_3rqys2q',
-      'template_devireb',
+      'template_devlreb',
       {
         name: formData.name,
         email: formData.email,
