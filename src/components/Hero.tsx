@@ -24,17 +24,38 @@ export function Hero() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-br from-gray-900/95 via-blue-900/90 to-purple-900/95"></div>
 
-      {/* Grid Content */}
+      {/* CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-        {/* LEFT SIDE - TEXT */}
+        {/* LEFT SIDE - PHOTO */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center"
+        >
+          <div className="relative">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl">
+              <img
+                src={profile}
+                alt="Fredy Mahugnon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-full border-4 border-blue-400 animate-pulse opacity-30"></div>
+          </div>
+        </motion.div>
+
+        {/* RIGHT SIDE - TEXT */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="text-white"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             GBETOWENONMON <br />
             <span className="bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Mahugnon Frédy Abdon
@@ -42,7 +63,7 @@ export function Hero() {
           </h1>
 
           <p className="text-xl text-blue-100 mb-6">
-            Développeur Junior Web & Mobile
+            Développeur Web & Mobile
           </p>
 
           <p className="text-gray-300 mb-8 max-w-xl">
@@ -75,6 +96,7 @@ export function Hero() {
             >
               <Github size={26} />
             </a>
+
             <a
               href="https://www.linkedin.com/in/fredy-gbetowenonmon-b7a026333"
               target="_blank"
@@ -83,6 +105,7 @@ export function Hero() {
             >
               <Linkedin size={26} />
             </a>
+
             <a
               href="mailto:fredygbetowenonmon02@gmail.com"
               className="hover:text-blue-400 transition"
@@ -91,36 +114,6 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
-
-        {/* RIGHT SIDE - PHOTO */}
-        <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-col items-center"
-      >
-        {/* Photo circulaire */}
-        <div className="relative mb-6">
-          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl">
-            <img
-              src={profile}
-              alt="Fredy Mahugnon"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Effet glow animé */}
-          <div className="absolute inset-0 rounded-full border-4 border-blue-400 animate-pulse opacity-40"></div>
-        </div>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-center">
-          GBETOWENONMON Mahugnon Frédy Abdon
-        </h1>
-
-        <p className="text-xl md:text-2xl text-blue-100 mb-6">
-          Développeur Junior Web & Mobile
-        </p>
-      </motion.div>
       </div>
 
       {/* Scroll Down */}
