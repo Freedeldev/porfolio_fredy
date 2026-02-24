@@ -1,22 +1,24 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import portfolioImg from "../images/portfolio.png";
+import EcomImg from "../images/Ecom.png";
 
 export function Projects() {
   const projects = [
     {
-      title: "Application de Gestion Scolaire",
+      title: "Site E-commerce",
       description:
         "Application web complète permettant la gestion des élèves, notes, bulletins et classes avec authentification sécurisée.",
-      image: "/images/gestion-scolaire.png", // Remplace par TON image
-      tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-      demoUrl: "https://ton-site-demo.com",
-      githubUrl: "https://github.com/ton-compte/gestion-scolaire",
+      image: EcomImg ,
+      tags: ["HTML", "CSS", "JavaScript"],
+      demoUrl: "https://elegant-house.vercel.app/",
+      githubUrl: "https://github.com/Freedeldev/elegantHouse",
     },
     {
       title: "Portfolio Personnel",
       description:
         "Portfolio moderne développé avec React et Tailwind CSS pour présenter mes projets et compétences.",
-      image: "./images/porfolio.png",
+      image: portfolioImg, // Assure-toi d'avoir cette image dans ton dossier src/images
       tags: ["React", "Tailwind", "Framer Motion"],
       demoUrl: "",
       githubUrl: "https://github.com/Freedeldev/porfolio_fredy",
