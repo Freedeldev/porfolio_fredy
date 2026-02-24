@@ -10,12 +10,29 @@ export function Contact() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulation d'envoi de formulaire
-    alert('Message envoyé ! Je vous répondrai bientôt.');
-    setFormData({ name: '', email: '', message: '' });
-  };
+ const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  emailjs
+    .send(
+      '',
+      'template_s369r9a',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      'JBcCv09q6w4Gk_RdN'
+    )
+    .then(() => {
+      alert('Message envoyé avec succès !');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Erreur lors de l'envoi.");
+    });
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
