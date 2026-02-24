@@ -8,7 +8,7 @@ export function Projects() {
     {
       title: "Site E-commerce",
       description:
-        "Application web moderne pour un site de e-commerce de vente de meubes avec panier, paiement et gestion des produits.",
+        "Application web moderne pour un site de e-commerce de vente de meubles avec panier, paiement et gestion des produits.",
       image: EcomImg ,
       tags: ["HTML", "CSS", "JavaScript"],
       demoUrl: "https://elegant-house.vercel.app/",
