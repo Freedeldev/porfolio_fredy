@@ -18,8 +18,8 @@ export function Contact() {
       'service_3rqys2q',
       'template_devireb',
       {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
+        email: formData.email,
         message: formData.message,
       },
       'JBcCv09q6w4Gk_RdN'
