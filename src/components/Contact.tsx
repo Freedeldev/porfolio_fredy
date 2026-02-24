@@ -1,36 +1,40 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin} from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
  const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
+  setStatus("loading");
 
   emailjs
     .send(
-      'service_3rqys2q',
-      'template_devlreb',
+      "service_3rqys2q",
+      "template_devlreb",
       {
         name: formData.name,
         email: formData.email,
         message: formData.message,
       },
-      'JBcCv09q6w4Gk_RdN'
+      "JBcCv09q6w4Gk_RdN"
     )
     .then(() => {
-      alert('Message envoyé avec succès !');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 4000);
     })
-    .catch((error) => {
-      console.error(error);
-      alert("Erreur lors de l'envoi.");
+    .catch(() => {
+      setStatus("error");
     });
 };
 
@@ -173,13 +177,20 @@ export function Contact() {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2 font-semibold"
-              >
-                <Send size={20} />
-                Envoyer le message
+              <button type="submit" disabled={status === "loading"} className="w-full px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2 font-semibold disabled:opacity-50">
+                {status === "loading" ? "Envoi en cours..." : "Envoyer le message"}
               </button>
+              {status === "success" && (
+                <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                  ✅ Message envoyé avec succès ! Je vous répondrai bientôt.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                  ❌ Une erreur est survenue. Veuillez réessayer.
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
