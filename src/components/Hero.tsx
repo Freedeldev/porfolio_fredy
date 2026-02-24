@@ -97,7 +97,7 @@ export function Hero() {
               <Github size={28} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/fredy-gbetowenonmon-b7a026333"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-blue-300 transition-colors"
@@ -105,7 +105,7 @@ export function Hero() {
               <Linkedin size={28} />
             </a>
             <a
-              href="mailto:mailto:fredygbetowenonmon02@gmail.com"
+              href="mailto:fredygbetowenonmon02@gmail.com"
               className="text-white hover:text-blue-300 transition-colors"
             >
               <Mail size={28} />
